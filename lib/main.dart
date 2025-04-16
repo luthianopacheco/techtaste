@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:techtaste/data/restaurant_data.dart';
 import 'package:techtaste/pages/_core/app_theme.dart';
+import 'package:techtaste/pages/_core/bag_provider.dart';
 import 'package:techtaste/pages/splash/splash_screen.dart';
 
 void main() async {
@@ -10,7 +11,10 @@ void main() async {
   await restaurantData.getRestaurants();
 
   runApp(MultiProvider(
-    providers: [ChangeNotifierProvider(create: (context) => restaurantData)],
+    providers: [
+      ChangeNotifierProvider(create: (context) => restaurantData),
+      ChangeNotifierProvider(create: (context) => BagProvider()),
+    ],
     child: const MyApp(),
   ));
 }

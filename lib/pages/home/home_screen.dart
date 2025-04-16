@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:techtaste/data/categories_data.dart';
 import 'package:techtaste/data/restaurant_data.dart';
+import 'package:techtaste/pages/_core/widgets/appbar_widget.dart';
 import 'package:techtaste/pages/home/widgets/category_widget.dart';
 import 'package:techtaste/pages/home/widgets/restaurant_widget.dart';
 
@@ -14,12 +15,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       drawer: const Drawer(),
-      appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () {}, icon: const Icon(Icons.account_circle_rounded)),
-        ],
-      ),
+      appBar: getAppBar(context: context),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: SingleChildScrollView(
